@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'customer_address_list' %}">Address Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>full_address</td>
+    <td>postcode</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.full_address }}</td>
+    <td>{{ object.postcode }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'customer_address_create' %}">Create new Address</a>
+{% endblock %}

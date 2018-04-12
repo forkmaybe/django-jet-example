@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'customer_address_list' %}">Address Listing</a></p>
+<table class="table">
+<tr><td>full_address</td><td>{{ object.full_address }}</td></tr>
+<tr><td>postcode</td><td>{{ object.postcode }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Address</a>
+
+{% endblock %}

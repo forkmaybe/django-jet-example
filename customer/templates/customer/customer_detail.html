@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'customer_customer_list' %}">Customer Listing</a></p>
+<table class="table">
+<tr><td>Name</td><td>{{ object.get_full_name }}</td></tr>
+<tr><td>dob</td><td>{{ object.dob }}</td></tr>
+<tr><td>position</td><td>{{ object.position }}</td></tr>
+<tr><td>Department</td><td>{{ object.department }}</td></tr>
+{% for address in object.address_set.all %}
+	<tr><td>Address</td><td>{{ address }}</td></tr>
+{% endfor %}
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Customer</a>
+
+{% endblock %}
